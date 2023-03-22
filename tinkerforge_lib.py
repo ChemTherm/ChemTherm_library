@@ -11,7 +11,7 @@ from tinkerforge.bricklet_industrial_analog_out_v2 import BrickletIndustrialAnal
 from tinkerforge.bricklet_analog_in_v3 import BrickletAnalogInV3
 from tinkerforge.bricklet_industrial_dual_analog_in_v2 import BrickletIndustrialDualAnalogInV2
 
-
+'jetzt hab ich hier was angepasst'
 
 class regler:
     t_soll = 0
