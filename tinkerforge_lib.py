@@ -12,6 +12,19 @@ from tinkerforge.bricklet_analog_in_v3 import BrickletAnalogInV3
 from tinkerforge.bricklet_industrial_dual_analog_in_v2 import BrickletIndustrialDualAnalogInV2
 
 'jetzt hab ich hier was angepasst'
+def json_timng(config, section, t0):
+    T_set = [0,0,0,0]
+    MFC_set = [0,0,0]
+    
+    T_set[0] = config['Timing']['R1-Z1'][section-1] + (config['Timing']['R1-Z1'][section] - config['Timing']['R1-Z1'][section-1]) / (config['Timing']['t'][section] - config['Timing']['t'][section-1] ) * (time.time() - t0) 
+    T_set[1] = config['Timing']['R1-Z1'][section-1] + (config['Timing']['R1-Z1'][section] - config['Timing']['R1-Z1'][section-1]) / (config['Timing']['t'][section] - config['Timing']['t'][section-1] ) * (time.time() - t0)
+    T_set[2] = config['Timing']['R1-Z1'][section-1] + (config['Timing']['R1-Z1'][section] - config['Timing']['R1-Z1'][section-1]) / (config['Timing']['t'][section] - config['Timing']['t'][section-1] ) * (time.time() - t0)
+    T_set[3] = config['Timing']['R1-Z1'][section-1] + (config['Timing']['R1-Z1'][section] - config['Timing']['R1-Z1'][section-1]) / (config['Timing']['t'][section] - config['Timing']['t'][section-1] ) * (time.time() - t0)
+
+    MFC_set[0] = config['Timing']['MFC-N2'][section]
+    MFC_set[1] = config['Timing']['MFC-Air'][section]
+    MFC_set[2] = config['Timing']['MFC-Ethan'][section]
+    return T_set, MFC_set
 
 class regler:
     t_soll = 0
