@@ -11,8 +11,7 @@ from tinkerforge.bricklet_industrial_analog_out_v2 import BrickletIndustrialAnal
 from tinkerforge.bricklet_analog_in_v3 import BrickletAnalogInV3
 from tinkerforge.bricklet_industrial_dual_analog_in_v2 import BrickletIndustrialDualAnalogInV2
 
-'jetzt hab ich hier was angepasst'
-def json_timng(config, section, t0):
+def json_timing(config, section, t0):
     T_set = [0,0,0,0]
     MFC_set = [0,0,0]
     
