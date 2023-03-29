@@ -15,15 +15,16 @@ def json_timing(config, section, t0):
     T_set = [0,0,0,0]
     MFC_set = [0,0,0]
     
-    T_set[0] = config['TIMING']['R1-Z1'][section-1] + (config['TIMING']['R1-Z1'][section] - config['TIMING']['R1-Z1'][section-1]) / (config['TIMING']['t'][section] - config['TIMING']['t'][section-1] ) * (time.time() - t0) 
-    T_set[1] = config['TIMING']['R1-Z1'][section-1] + (config['TIMING']['R1-Z1'][section] - config['TIMING']['R1-Z1'][section-1]) / (config['TIMING']['t'][section] - config['TIMING']['t'][section-1] ) * (time.time() - t0)
-    T_set[2] = config['TIMING']['R1-Z1'][section-1] + (config['TIMING']['R1-Z1'][section] - config['TIMING']['R1-Z1'][section-1]) / (config['TIMING']['t'][section] - config['TIMING']['t'][section-1] ) * (time.time() - t0)
-    T_set[3] = config['TIMING']['R1-Z1'][section-1] + (config['TIMING']['R1-Z1'][section] - config['TIMING']['R1-Z1'][section-1]) / (config['TIMING']['t'][section] - config['TIMING']['t'][section-1] ) * (time.time() - t0)
+    T_set[0] = config['TIMING']['R1-Z1'][section-1] + (config['TIMING']['R1-Z1'][section] - config['TIMING']['R1-Z1'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t0) 
+    T_set[1] = config['TIMING']['R1-Z1'][section-1] + (config['TIMING']['R1-Z1'][section] - config['TIMING']['R1-Z1'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t0)
+    T_set[2] = config['TIMING']['R1-Z1'][section-1] + (config['TIMING']['R1-Z1'][section] - config['TIMING']['R1-Z1'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t0)
+    T_set[3] = config['TIMING']['R1-Z1'][section-1] + (config['TIMING']['R1-Z1'][section] - config['TIMING']['R1-Z1'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t0)
 
     MFC_set[0] = config['TIMING']['MFC-N2'][section]
     MFC_set[1] = config['TIMING']['MFC-Air'][section]
     MFC_set[2] = config['TIMING']['MFC-Ethan'][section]
     return T_set, MFC_set
+
 
 class regler:
     t_soll = 0
