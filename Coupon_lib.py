@@ -7,10 +7,10 @@ def heating(t0):
     T_set = [0,0,0,0]
     MFC_set = [3750,0,0]
 
-    T_high = 850
     T_low = 20
-    heat_time = 3600 +1800
-    run_time = 7200
+    T_high = 850
+    heat_time = 4500
+    run_time = 5400
     if (time.time() -t0) < heat_time:
         T_calc = T_low + (T_high-T_low) /(run_time) * (time.time() -t0)
         T_set = [T_calc,T_calc,T_calc,T_calc]
@@ -28,8 +28,8 @@ def Coking(t0):
     T_set = [0,0,0,0]
     MFC_set = [0,0,833]
 
-    T_high = 986
     T_low = 850
+    T_high = 986
     heat_time = 3600
     run_time = 3600*6
     if (time.time() -t0) < heat_time:
@@ -49,8 +49,8 @@ def Cooling(t0):
     T_set = [0,0,0,0]
     MFC_set = [3750,0,0]
 
-    T_high = 850
     T_low = 986
+    T_high = 850
     heat_time = 900
     run_time = 1800
     if (time.time() -t0) < heat_time:
@@ -69,8 +69,8 @@ def Decoking(t0):
     T_set = [0,0,0,0]
     MFC_set = [1250,1250,0]
 
-    T_high = 1000
     T_low = 850
+    T_high = 1000
     run_time = 1800
     T_calc = T_low + (T_high-T_low) /(run_time) * (time.time() -t0)
     T_set = [T_calc,T_calc,T_calc,T_calc]
@@ -86,4 +86,7 @@ def SteamTreatment(t0):
     MFC_set = [0,1250,0]
     run_time = 900
     t_end = run_time - (time.time() -t0)
+    if (t_end < 0):
+        MFC_set = [3750,0,0]
+        T_set = [850,850,850,850]
     return T_set, MFC_set, t_end
