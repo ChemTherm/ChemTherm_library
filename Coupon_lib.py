@@ -12,7 +12,7 @@ def heating(t0):
     heat_time = 4500
     run_time = 5400
     if (time.time() -t0) < heat_time:
-        T_calc = T_low + (T_high-T_low) /(run_time) * (time.time() -t0)
+        T_calc = T_low + (T_high-T_low) /(heat_time) * (time.time() -t0)
         T_set = [T_calc,T_calc,T_calc,T_calc]
     else:
         T_set = [T_high,T_high,T_high,T_high]
@@ -54,7 +54,7 @@ def Cooling(t0):
     heat_time = 900
     run_time = 1800
     if (time.time() -t0) < heat_time:
-        T_calc = T_low + (T_high-T_low) /(run_time) * (time.time() -t0)
+        T_calc = T_low + (T_high-T_low) /(heat_time) * (time.time() -t0)
         T_set = [T_calc,T_calc,T_calc,T_calc]
     else:
         T_set = [T_high,T_high,T_high,T_high]
