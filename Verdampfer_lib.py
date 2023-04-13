@@ -22,7 +22,7 @@ def json_timing(config, section, t0):
         run_time += config['TIMING']['t'][i]
     t_end = run_time - (time.time() -t0)
     
-    section_time = 0   
+    section_time = config['TIMING']['t'][0]  
     for i in range(0,section):
         section_time += config['TIMING']['t'][i]    
     t_section = section_time - (time.time() -t0)
