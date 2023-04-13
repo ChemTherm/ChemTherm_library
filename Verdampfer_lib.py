@@ -5,7 +5,7 @@ def json_timing(config, section, t0):
     T_set = [0,0,0]
     MFC_set = [0]
     
-    if config['TIMINg']['T_interp'][section] == 0:
+    if config['TIMING']['T_interp'][section] == 0:
         T_set[0] = config['TIMING']['T_Soll1'][section]
         T_set[1] = config['TIMING']['T_Soll1'][section]
         T_set[2] = config['TIMING']['T_Soll2'][section]
