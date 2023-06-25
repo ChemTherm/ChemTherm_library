@@ -10,6 +10,8 @@ from tinkerforge.bricklet_industrial_digital_out_4_v2 import BrickletIndustrialD
 from tinkerforge.bricklet_industrial_analog_out_v2 import BrickletIndustrialAnalogOutV2
 from tinkerforge.bricklet_analog_in_v3 import BrickletAnalogInV3
 from tinkerforge.bricklet_industrial_dual_analog_in_v2 import BrickletIndustrialDualAnalogInV2
+from tinkerforge.bricklet_industrial_dual_relay import BrickletIndustrialDualRelay
+
 
 
 
