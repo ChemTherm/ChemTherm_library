@@ -170,12 +170,11 @@ class MFC_AIO_30:
     
     def get(self):
         self.Voltage = self.voltage
-        
+
     def __init__(self,ipcon,ID_out,ID_in) -> None:
         self.UID = ID_out
         self.Aout = BrickletAnalogOutV3(ID_out, ipcon)
         self.Aout.set_output_voltage(0)
-        self.Aout.set_enabled(True)
         self.Ain = BrickletAnalogInV3(ID_in, ipcon) # Create device object
         self.Ain.register_callback(self.Ain.CALLBACK_VOLTAGE, self.cb_voltage)
         self.Ain.set_voltage_callback_configuration(1000, False, "x", 0, 0)
