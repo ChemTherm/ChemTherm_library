@@ -4,11 +4,16 @@ import time
 def json_timing(config, section, t0, t_calc):
     T_set = [0,0,0,0]
     MFC_set = [0,0,0]
-    
-    T_set[0] = config['TIMING']['R1-Z1'][section-1] + (config['TIMING']['R1-Z1'][section] - config['TIMING']['R1-Z1'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t_calc) 
-    T_set[1] = config['TIMING']['R1-Z2'][section-1] + (config['TIMING']['R1-Z2'][section] - config['TIMING']['R1-Z2'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t_calc)
-    T_set[2] = config['TIMING']['R1-Z3'][section-1] + (config['TIMING']['R1-Z3'][section] - config['TIMING']['R1-Z3'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t_calc)
-    T_set[3] = config['TIMING']['R1-Z4'][section-1] + (config['TIMING']['R1-Z4'][section] - config['TIMING']['R1-Z4'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t_calc)
+    if section > 0:
+        T_set[0] = config['TIMING']['R1-Z1'][section-1] + (config['TIMING']['R1-Z1'][section] - config['TIMING']['R1-Z1'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t_calc) 
+        T_set[1] = config['TIMING']['R1-Z2'][section-1] + (config['TIMING']['R1-Z2'][section] - config['TIMING']['R1-Z2'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t_calc)
+        T_set[2] = config['TIMING']['R1-Z3'][section-1] + (config['TIMING']['R1-Z3'][section] - config['TIMING']['R1-Z3'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t_calc)
+        T_set[3] = config['TIMING']['R1-Z4'][section-1] + (config['TIMING']['R1-Z4'][section] - config['TIMING']['R1-Z4'][section-1]) / (config['TIMING']['t'][section] ) * (time.time() - t_calc)
+    else:
+        T_set[0] = config['TIMING']['R1-Z1'][section]
+        T_set[1] = config['TIMING']['R1-Z2'][section]
+        T_set[2] = config['TIMING']['R1-Z3'][section]
+        T_set[3] = config['TIMING']['R1-Z4'][section]
 
     MFC_set[0] = config['TIMING']['MFC-N2'][section]
     MFC_set[1] = config['TIMING']['MFC-Air'][section]
