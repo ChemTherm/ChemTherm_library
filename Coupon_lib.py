@@ -13,8 +13,7 @@ def json_timing(config, section, t0):
     section_time = 0 
     for i in range(0,section+1):
         section_time += config['TIMING']['t'][i]  
-
-    print(section_time)      
+  
     t_section = section_time - (time.time() -t0)
 
     if section > 0:
